@@ -8,12 +8,12 @@ export default function Mission() {
         <div className="flex flex-col gap-6">
           <h2
             id="mission-heading"
-            className="font-display text-3xl font-bold leading-snug text-[var(--fg)] sm:text-4xl"
+            className="reveal font-display text-3xl font-bold leading-snug text-[var(--fg)] sm:text-4xl"
           >
             BASH Insights exists to help government agencies, public institutions, and community partners solve complex challenges through practical solutions, trusted collaboration, and mission-focused support.
           </h2>
-          <p className="max-w-2xl text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
-            We&rsquo;re built to be a flexible, mission-first partner &mdash; not a single-service vendor. Whatever the challenge, our approach is the same: understand the mission, bring the right resources together, and deliver outcomes that hold up to scrutiny and serve the public good.
+          <p className="reveal max-w-2xl text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg" data-delay="2">
+            We&rsquo;re built to be a flexible, mission-first partner &mdash; not a single-service vendor. Whatever the challenge, our approach is the same: understand the goal, bring the right resources together, and deliver outcomes that brings results and serve the public good.
           </p>
         </div>
       </div>

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import ScrollRevealInit from "@/components/ScrollRevealInit";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -83,7 +84,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ScrollRevealInit />
+        {children}
+      </body>
     </html>
   );
 }

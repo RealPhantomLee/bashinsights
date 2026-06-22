@@ -13,12 +13,17 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const saved = localStorage.getItem("theme") || "dark";
     setTheme(saved as "dark" | "light");
     document.documentElement.dataset.theme = saved;
+
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const toggleTheme = () => {
@@ -29,7 +34,10 @@ export default function Nav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border)] backdrop-blur" style={{ backgroundColor: "var(--bg-nav)" }}>
+    <header
+      className={`sticky top-0 z-50 border-b border-[var(--border)] backdrop-blur transition-shadow duration-300 ${scrolled ? "shadow-lg shadow-black/20" : ""}`}
+      style={{ backgroundColor: "var(--bg-nav)" }}
+    >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div className="flex flex-col">
           <a href="#top" className="font-display text-lg font-semibold tracking-tight text-[var(--fg)]">

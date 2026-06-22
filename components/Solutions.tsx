@@ -41,22 +41,24 @@ export default function Solutions() {
     <section id="solutions" className="bg-[var(--bg-secondary)]" aria-labelledby="solutions-heading">
       <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
         <div className="max-w-2xl">
-          <p className="section-label">02 / Capabilities</p>
+          <p className="reveal section-label">02 / Capabilities</p>
           <h2
             id="solutions-heading"
-            className="mt-4 font-display text-3xl font-bold tracking-tight text-[var(--fg)] sm:text-4xl"
+            className="reveal mt-4 font-display text-3xl font-bold tracking-tight text-[var(--fg)] sm:text-4xl"
+            data-delay="1"
           >
             Capabilities Across the Mission
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
-            We&rsquo;re not built around a single specialty. BASH Insights brings together capability areas that government organizations rely on every day &mdash; so we can support the mission wherever it needs us.
+          <p className="reveal mt-4 text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg" data-delay="2">
+            We&rsquo;re not a &ldquo;one solution solves all&rdquo; kind of company. We bring together capable people that you can rely on every day.
           </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {capabilities.map((capability) => (
+          {capabilities.map((capability, i) => (
             <div
               key={capability.title}
-              className="rounded-sm border border-[var(--border)] border-t-2 border-t-transparent bg-[var(--surface)] p-6 transition-all hover:border-t-[var(--accent)] hover:shadow-lg"
+              className="reveal rounded-sm border border-[var(--border)] border-t-2 border-t-transparent bg-[var(--surface)] p-6 transition-all hover:-translate-y-1 hover:border-t-[var(--accent)] hover:shadow-xl"
+              data-delay={String(Math.min(i % 3 + 1, 5))}
             >
               <h3 className="font-display text-lg font-bold text-[var(--fg)]">
                 {capability.title}
