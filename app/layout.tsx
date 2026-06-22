@@ -27,7 +27,9 @@ export const metadata: Metadata = {
     "government solutions",
     "public sector partner",
     "GovCon",
-    "Common Sphere",
+    "BASH Insights",
+    "data analytics",
+    "strategic hub",
   ],
   authors: [{ name: SITE_NAME }],
   openGraph: {
@@ -52,7 +54,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#15324d",
+  themeColor: "#06B6D4",
 };
 
 export default function RootLayout({
@@ -61,7 +63,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      data-theme="dark"
+      className={`${inter.variable} ${sora.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              const theme = localStorage.getItem('theme') || 'dark';
+              document.documentElement.dataset.theme = theme;
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

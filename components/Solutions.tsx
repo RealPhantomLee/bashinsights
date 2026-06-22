@@ -1,68 +1,67 @@
 const capabilities = [
   {
-    title: "Administrative & Operations Support",
+    title: "Data Analytics & Insights",
     description:
-      "Day-to-day operational backbone — from program coordination to office and records management — that keeps missions moving.",
+      "Rigorous analysis of government data that reveals patterns, forecasts outcomes, and informs strategic decisions.",
   },
   {
-    title: "Logistics & Supply Chain",
+    title: "Performance Metrics & Dashboards",
     description:
-      "Planning and coordination that gets people, materials, and resources where they need to be, on time and on budget.",
+      "Real-time visibility into mission-critical KPIs and performance indicators — designed for rapid decision-making.",
   },
   {
-    title: "Compliance & Risk Management",
+    title: "Research & Strategic Analysis",
     description:
-      "Practical frameworks that help organizations meet regulatory requirements and reduce risk without slowing the mission down.",
+      "Evidence-based research and competitive intelligence that helps agencies understand their landscape and opportunities.",
   },
   {
-    title: "Training & Workforce Development",
+    title: "Program Evaluation",
     description:
-      "Programs that build capability and readiness across teams, from onboarding to advanced skills development.",
+      "Rigorous assessment of program effectiveness, ROI, and impact — backed by data and tailored to public sector outcomes.",
   },
   {
-    title: "Project & Program Management",
+    title: "Policy Analysis & Modeling",
     description:
-      "Disciplined planning and execution that keeps initiatives on track, on scope, and aligned with strategic goals.",
+      "Scenario modeling and policy impact analysis to evaluate options before implementation at scale.",
   },
   {
-    title: "Research & Analysis",
+    title: "Workforce & Operations Analytics",
     description:
-      "Clear, evidence-based insight that helps decision-makers understand challenges and choose the right path forward.",
+      "Data-driven insights into staffing, resource allocation, and process efficiency across your organization.",
   },
   {
-    title: "Technology & Modernization",
+    title: "Risk & Compliance Analytics",
     description:
-      "Practical support for modernizing systems and processes — helping organizations adapt without disrupting what already works.",
+      "Predictive analytics and compliance monitoring that reduce risk and support regulatory adherence.",
   },
 ];
 
 export default function Solutions() {
   return (
-    <section id="solutions" className="bg-sand" aria-labelledby="solutions-heading">
+    <section id="solutions" className="bg-[var(--bg-secondary)]" aria-labelledby="solutions-heading">
       <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
         <div className="max-w-2xl">
+          <p className="section-label">02 / Capabilities</p>
           <h2
             id="solutions-heading"
-            className="font-display text-3xl font-semibold tracking-tight text-navy sm:text-4xl"
+            className="mt-4 font-display text-3xl font-bold tracking-tight text-[var(--fg)] sm:text-4xl"
           >
-            Capabilities Across the Mission
+            Analytics & Insight Across Your Mission
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-foreground/70 sm:text-lg">
-            We&rsquo;re not built around a single specialty. Common Sphere brings
-            together capability areas that government organizations rely on every day
-            &mdash; so we can support the mission wherever it needs us.
+          <p className="mt-4 text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
+            From data discovery to strategic insight, we bring analytics discipline to every challenge. Our capabilities span analytics, evaluation, and strategic support.
           </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {capabilities.map((capability) => (
             <div
               key={capability.title}
-              className="rounded-2xl border border-navy/10 bg-background p-6 shadow-sm transition-shadow hover:shadow-md"
+              className="rounded-sm border-t-2 border-t-transparent bg-[var(--surface)] p-6 transition-all hover:border-t-[var(--accent)] hover:shadow-lg"
             >
-              <h3 className="font-display text-lg font-semibold text-navy">
+              <h3 className="font-display text-lg font-bold text-[var(--fg)]">
                 {capability.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-foreground/70">
+              <p className="mt-3 text-sm leading-relaxed text-[var(--fg-muted)]">
                 {capability.description}
               </p>
             </div>

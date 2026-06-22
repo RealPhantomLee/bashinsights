@@ -1,31 +1,67 @@
 @import "tailwindcss";
 
-:root {
-  --background: #faf8f5;
-  --foreground: #1c2b3a;
-  --color-navy: #15324d;
-  --color-navy-deep: #0e2236;
-  --color-teal: #2f7a70;
-  --color-sand: #f0ebe2;
+:root,
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-secondary: #f4f4f8;
+  --fg: #0a0a14;
+  --fg-muted: #5a5a78;
+  --accent: #06B6D4;
+  --accent-dim: #0891B2;
+  --border: rgba(0, 0, 0, 0.08);
+  --surface: #ffffff;
+  --surface-raised: #f8f8fc;
+}
+
+[data-theme="dark"] {
+  --bg: #080810;
+  --bg-secondary: #0f0f1a;
+  --fg: #f0f0ff;
+  --fg-muted: #8888aa;
+  --accent: #06B6D4;
+  --accent-dim: #22D3EE;
+  --border: rgba(255, 255, 255, 0.08);
+  --surface: #13131f;
+  --surface-raised: #1a1a2e;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-navy: var(--color-navy);
-  --color-navy-deep: var(--color-navy-deep);
-  --color-teal: var(--color-teal);
-  --color-sand: var(--color-sand);
   --font-sans: var(--font-inter);
   --font-display: var(--font-sora);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-}
-
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Utility classes for geometric design */
+.section-clip-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+
+.section-clip-top {
+  clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+}
+
+.accent-line {
+  border-top: 1px solid var(--accent);
+}
+
+.accent-line-thick {
+  border-top: 2px solid var(--accent);
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  text-transform: uppercase;
 }
