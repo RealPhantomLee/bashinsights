@@ -4,6 +4,7 @@
 [data-theme="light"] {
   --bg: #ffffff;
   --bg-secondary: #f4f4f8;
+  --bg-nav: rgba(255, 255, 255, 0.9);
   --fg: #0a0a14;
   --fg-muted: #5a5a78;
   --accent: #06B6D4;
@@ -11,11 +12,13 @@
   --border: rgba(0, 0, 0, 0.08);
   --surface: #ffffff;
   --surface-raised: #f8f8fc;
+  --surface-dark: #0f172a;
 }
 
 [data-theme="dark"] {
   --bg: #080810;
   --bg-secondary: #0f0f1a;
+  --bg-nav: rgba(8, 8, 16, 0.9);
   --fg: #f0f0ff;
   --fg-muted: #8888aa;
   --accent: #06B6D4;
@@ -23,6 +26,7 @@
   --border: rgba(255, 255, 255, 0.08);
   --surface: #13131f;
   --surface-raised: #1a1a2e;
+  --surface-dark: #0a0a14;
 }
 
 @theme inline {

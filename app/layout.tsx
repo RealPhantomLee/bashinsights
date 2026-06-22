@@ -73,8 +73,12 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              const theme = localStorage.getItem('theme') || 'dark';
-              document.documentElement.dataset.theme = theme;
+              try {
+                const t = localStorage.getItem('theme') || 'dark';
+                document.documentElement.dataset.theme = t;
+              } catch(e) {
+                document.documentElement.dataset.theme = 'dark';
+              }
             `,
           }}
         />

@@ -1,9 +1,8 @@
-# Deployment Pipeline — Common Sphere Site
+# Deployment Pipeline — BASH Insights Site
 
-Status: site builds cleanly to `out/` (static export), pushed to
-[github.com/RealPhantomLee/common-sphere-site](https://github.com/RealPhantomLee/common-sphere-site)
-(private). Domain not yet finalized — `lib/site.ts` currently uses a
-placeholder URL (`https://www.commonsphere-group.com`).
+Status: site builds cleanly via Docker/nginx on port 3005. Cloudflare Tunnel
+routes `bashinsights.com` → `localhost:3005`.
+GitHub: [github.com/RealPhantomLee/bashinsights](https://github.com/RealPhantomLee/bashinsights)
 
 ## 0. Interim hosting on Vercel (until domain is chosen)
 

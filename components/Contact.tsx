@@ -12,11 +12,11 @@ export default function Contact() {
           Let&rsquo;s talk about how BASH Insights can support your mission.
         </h2>
         <p className="max-w-2xl text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
-          Whether you&rsquo;re scoping an upcoming analytics initiative or exploring a partnership, we&rsquo;d welcome the conversation. Reach out and we&rsquo;ll follow up promptly.
+          Whether you&rsquo;re scoping an upcoming requirement or exploring a new partnership, we&rsquo;d welcome the conversation. Reach out and we&rsquo;ll follow up promptly.
         </p>
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="rounded-sm bg-[#06B6D4] px-8 py-3 text-base font-semibold text-white transition-all hover:bg-[#0891B2] hover:shadow-lg"
+          className="rounded-sm bg-[var(--accent)] px-8 py-3 text-base font-semibold text-white transition-all hover:bg-[var(--accent-dim)] hover:shadow-lg"
         >
           Email {CONTACT_EMAIL}
         </a>

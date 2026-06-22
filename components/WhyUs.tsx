@@ -1,25 +1,29 @@
 const differentiators = [
   {
-    stat: "15+",
-    label: "Years Public Sector Experience",
+    title: "Mission-First, Not Vertical-Locked",
+    description:
+      "We organize around the mission, not a single industry. That means we bring the right capability to the table — whatever the challenge calls for — instead of fitting every problem into one specialty.",
   },
   {
-    stat: "200+",
-    label: "Government Engagements Delivered",
+    title: "Built for Trusted Collaboration",
+    description:
+      "Government work runs on relationships and accountability. We show up as a true partner — transparent, responsive, and easy to work alongside.",
   },
   {
-    stat: "98%",
-    label: "Client Retention Rate",
+    title: "Adaptive by Design",
+    description:
+      "Agencies and missions evolve. Our team and approach are built to flex with changing requirements, scopes, and priorities without losing momentum.",
   },
   {
-    stat: "12+",
-    label: "Analysis & Evaluation Specialties",
+    title: "Outcomes That Hold Up",
+    description:
+      "We focus on results that withstand scrutiny — well-documented, compliant, and built to create lasting public impact, not just check a box.",
   },
 ];
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="bg-[#0a0a14]" aria-labelledby="why-us-heading">
+    <section id="why-us" className="bg-[var(--surface-dark)]" aria-labelledby="why-us-heading">
       <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
         <div className="mb-16 max-w-2xl">
           <p className="section-label">03 / Differentiators</p>
@@ -30,19 +34,21 @@ export default function WhyUs() {
             Why BASH Insights
           </h2>
           <p className="mt-4 text-base leading-relaxed text-white/70 sm:text-lg">
-            We&rsquo;re built for public sector impact — combining deep analytics expertise with government contracting discipline.
+            We help public-sector organizations accomplish their missions &mdash; full stop. That focus shapes everything about how we work.
           </p>
         </div>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2">
           {differentiators.map((item) => (
             <div
-              key={item.label}
-              className="border-l-2 border-[#06B6D4] pl-6"
+              key={item.title}
+              className="border-l-2 border-[var(--accent)] bg-white/5 p-6"
             >
-              <p className="font-display text-4xl font-bold text-[#06B6D4] sm:text-5xl">
-                {item.stat}
+              <h3 className="font-display text-lg font-bold text-white">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-white/70">
+                {item.description}
               </p>
-              <p className="mt-2 text-sm font-medium text-white/70">{item.label}</p>
             </div>
           ))}
         </div>

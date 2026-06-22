@@ -1,38 +1,38 @@
 const capabilities = [
   {
-    title: "Data Analytics & Insights",
+    title: "Administrative & Operations Support",
     description:
-      "Rigorous analysis of government data that reveals patterns, forecasts outcomes, and informs strategic decisions.",
+      "Day-to-day operational backbone — from program coordination to office and records management — that keeps missions moving.",
   },
   {
-    title: "Performance Metrics & Dashboards",
+    title: "Logistics & Supply Chain",
     description:
-      "Real-time visibility into mission-critical KPIs and performance indicators — designed for rapid decision-making.",
+      "Planning and coordination that gets people, materials, and resources where they need to be, on time and on budget.",
   },
   {
-    title: "Research & Strategic Analysis",
+    title: "Compliance & Risk Management",
     description:
-      "Evidence-based research and competitive intelligence that helps agencies understand their landscape and opportunities.",
+      "Practical frameworks that help organizations meet regulatory requirements and reduce risk without slowing the mission down.",
   },
   {
-    title: "Program Evaluation",
+    title: "Training & Workforce Development",
     description:
-      "Rigorous assessment of program effectiveness, ROI, and impact — backed by data and tailored to public sector outcomes.",
+      "Programs that build capability and readiness across teams, from onboarding to advanced skills development.",
   },
   {
-    title: "Policy Analysis & Modeling",
+    title: "Project & Program Management",
     description:
-      "Scenario modeling and policy impact analysis to evaluate options before implementation at scale.",
+      "Disciplined planning and execution that keeps initiatives on track, on scope, and aligned with strategic goals.",
   },
   {
-    title: "Workforce & Operations Analytics",
+    title: "Research & Analysis",
     description:
-      "Data-driven insights into staffing, resource allocation, and process efficiency across your organization.",
+      "Clear, evidence-based insight that helps decision-makers understand challenges and choose the right path forward.",
   },
   {
-    title: "Risk & Compliance Analytics",
+    title: "Technology & Modernization",
     description:
-      "Predictive analytics and compliance monitoring that reduce risk and support regulatory adherence.",
+      "Practical support for modernizing systems and processes — helping organizations adapt without disrupting what already works.",
   },
 ];
 
@@ -46,17 +46,17 @@ export default function Solutions() {
             id="solutions-heading"
             className="mt-4 font-display text-3xl font-bold tracking-tight text-[var(--fg)] sm:text-4xl"
           >
-            Analytics & Insight Across Your Mission
+            Capabilities Across the Mission
           </h2>
           <p className="mt-4 text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
-            From data discovery to strategic insight, we bring analytics discipline to every challenge. Our capabilities span analytics, evaluation, and strategic support.
+            We&rsquo;re not built around a single specialty. BASH Insights brings together capability areas that government organizations rely on every day &mdash; so we can support the mission wherever it needs us.
           </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {capabilities.map((capability) => (
             <div
               key={capability.title}
-              className="rounded-sm border-t-2 border-t-transparent bg-[var(--surface)] p-6 transition-all hover:border-t-[var(--accent)] hover:shadow-lg"
+              className="rounded-sm border border-[var(--border)] border-t-2 border-t-transparent bg-[var(--surface)] p-6 transition-all hover:border-t-[var(--accent)] hover:shadow-lg"
             >
               <h3 className="font-display text-lg font-bold text-[var(--fg)]">
                 {capability.title}

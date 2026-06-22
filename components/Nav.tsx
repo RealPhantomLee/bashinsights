@@ -29,7 +29,7 @@ export default function Nav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-current/10 bg-[var(--bg)]/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[var(--border)] backdrop-blur" style={{ backgroundColor: "var(--bg-nav)" }}>
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div className="flex flex-col">
           <a href="#top" className="font-display text-lg font-semibold tracking-tight text-[var(--fg)]">
@@ -52,7 +52,7 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <a
             href="#contact"
-            className="hidden rounded-full bg-[var(--accent)] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--accent-dim)] sm:inline-block"
+            className="hidden rounded-sm bg-[var(--accent)] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--accent-dim)] sm:inline-block"
           >
             Partner With Us
           </a>
@@ -67,11 +67,21 @@ export default function Nav() {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  fill="currentColor"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                  strokeLinecap="round"
                   className="h-5 w-5"
                 >
                   <circle cx="12" cy="12" r="5" />
-                  <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m6.08 0l4.24-4.24M1 12h6m6 0h6m-16.78 7.78l4.24-4.24m6.08 0l4.24 4.24" />
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
                 </svg>
               ) : (
                 <svg
@@ -131,7 +141,7 @@ export default function Nav() {
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-1 block rounded-full bg-[var(--accent)] px-4 py-2 text-center font-medium text-white transition-colors hover:bg-[var(--accent-dim)]"
+              className="mt-1 block rounded-sm bg-[var(--accent)] px-4 py-2 text-center font-semibold text-white transition-colors hover:bg-[var(--accent-dim)]"
             >
               Partner With Us
             </a>
