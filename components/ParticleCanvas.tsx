@@ -13,6 +13,14 @@ const PARTICLE_COUNT = 55;
 const CONNECTION_DISTANCE = 130;
 const SPEED = 0.25;
 
+function getThemeColors() {
+  const isDark = document.documentElement.dataset.theme !== "light";
+  return {
+    dot: isDark ? "rgba(6, 182, 212, 0.28)" : "rgba(6, 182, 212, 0.45)",
+    lineAlpha: isDark ? 0.12 : 0.2,
+  };
+}
+
 export default function ParticleCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -24,6 +32,7 @@ export default function ParticleCanvas() {
 
     let rafId: number;
     let particles: Particle[] = [];
+    let colors = getThemeColors();
 
     const resize = () => {
       canvas.width = canvas.offsetWidth;
@@ -55,7 +64,7 @@ export default function ParticleCanvas() {
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < CONNECTION_DISTANCE) {
-            const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.12;
+            const alpha = (1 - dist / CONNECTION_DISTANCE) * colors.lineAlpha;
             ctx.beginPath();
             ctx.strokeStyle = `rgba(6, 182, 212, ${alpha})`;
             ctx.lineWidth = 0.8;
@@ -69,7 +78,7 @@ export default function ParticleCanvas() {
       for (const p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(6, 182, 212, 0.28)";
+        ctx.fillStyle = colors.dot;
         ctx.fill();
       }
 
@@ -80,15 +89,24 @@ export default function ParticleCanvas() {
     init();
     draw();
 
-    const observer = new ResizeObserver(() => {
+    const resizeObserver = new ResizeObserver(() => {
       resize();
       init();
     });
-    observer.observe(canvas);
+    resizeObserver.observe(canvas);
+
+    const themeObserver = new MutationObserver(() => {
+      colors = getThemeColors();
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
 
     return () => {
       cancelAnimationFrame(rafId);
-      observer.disconnect();
+      resizeObserver.disconnect();
+      themeObserver.disconnect();
     };
   }, []);
 

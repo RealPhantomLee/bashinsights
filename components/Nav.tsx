@@ -9,11 +9,15 @@ const links = [
   { href: "#contact", label: "Contact" },
 ];
 
+const sectionIds = ["mission", "solutions", "why-us", "contact"];
+
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     setMounted(true);
@@ -21,16 +25,44 @@ export default function Nav() {
     setTheme(saved as "dark" | "light");
     document.documentElement.dataset.theme = saved;
 
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 30);
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        }
+      },
+      { threshold: 0.4 }
+    );
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) sectionObserver.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      sectionObserver.disconnect();
+    };
   }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.dataset.theme = newTheme;
+    window.dispatchEvent(
+      new CustomEvent("theme-transition", {
+        detail: { direction: newTheme === "light" ? "to-light" : "to-dark" },
+      })
+    );
+    setTimeout(() => {
+      setTheme(newTheme);
+      localStorage.setItem("theme", newTheme);
+      document.documentElement.dataset.theme = newTheme;
+    }, 350);
   };
 
   return (
@@ -38,24 +70,30 @@ export default function Nav() {
       className={`sticky top-0 z-50 border-b border-[var(--border)] backdrop-blur transition-shadow duration-300 ${scrolled ? "shadow-lg shadow-black/20" : ""}`}
       style={{ backgroundColor: "var(--bg-nav)" }}
     >
+      <div id="scroll-progress" style={{ width: `${scrollProgress}%` }} />
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div className="flex flex-col">
           <a href="#top" className="font-display text-lg font-semibold tracking-tight text-[var(--fg)]">
             BASH Insights
           </a>
-          <p className="text-xs text-[var(--fg-muted)]">Business Analytics & Strategic Hub</p>
+          <p className="text-xs text-[var(--fg-muted)]">Business Analytics &amp; Strategic Hub</p>
         </div>
         <ul className="hidden items-center gap-8 text-sm font-medium text-[var(--fg)]/80 sm:flex">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="border-b-2 border-transparent transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {links.map((link) => {
+            const isActive = activeSection === link.href.slice(1);
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={`border-b-2 transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] ${
+                    isActive ? "border-[var(--accent)] text-[var(--accent)]" : "border-transparent"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
         <div className="flex items-center gap-3">
           <a

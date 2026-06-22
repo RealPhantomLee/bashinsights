@@ -26,7 +26,7 @@ export default function WhyUs() {
     <section id="why-us" className="bg-[var(--surface-dark)]" aria-labelledby="why-us-heading">
       <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
         <div className="mb-16 max-w-2xl">
-          <p className="reveal section-label">03 / Differentiators</p>
+          <p className="reveal section-label scramble">03 / Differentiators</p>
           <h2
             id="why-us-heading"
             className="reveal mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl"

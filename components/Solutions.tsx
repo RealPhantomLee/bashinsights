@@ -41,7 +41,7 @@ export default function Solutions() {
     <section id="solutions" className="bg-[var(--bg-secondary)]" aria-labelledby="solutions-heading">
       <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
         <div className="max-w-2xl">
-          <p className="reveal section-label">02 / Capabilities</p>
+          <p className="reveal section-label scramble">02 / Capabilities</p>
           <h2
             id="solutions-heading"
             className="reveal mt-4 font-display text-3xl font-bold tracking-tight text-[var(--fg)] sm:text-4xl"
@@ -58,6 +58,7 @@ export default function Solutions() {
             <div
               key={capability.title}
               className="reveal rounded-sm border border-[var(--border)] border-t-2 border-t-transparent bg-[var(--surface)] p-6 transition-all hover:-translate-y-1 hover:border-t-[var(--accent)] hover:shadow-xl"
+              data-tilt=""
               data-delay={String(Math.min(i % 3 + 1, 5))}
             >
               <h3 className="font-display text-lg font-bold text-[var(--fg)]">

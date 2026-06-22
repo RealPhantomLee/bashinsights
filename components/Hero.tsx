@@ -5,13 +5,12 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="section-clip-bottom relative overflow-hidden bg-[var(--surface-dark)]"
+      className="section-clip-bottom relative overflow-hidden"
+      style={{ background: "var(--hero-bg)" }}
       aria-label="Introduction"
     >
-      {/* Live particle constellation background */}
       <ParticleCanvas />
 
-      {/* Subtle radial glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
@@ -26,15 +25,16 @@ export default function Hero() {
         <p className="animate-hero-eyebrow text-xs font-semibold uppercase tracking-widest text-[var(--accent)]">
           {SITE_FULL_NAME}
         </p>
-        <h1 className="animate-hero-h1 font-display max-w-4xl text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl md:text-7xl">
+        <h1 className="animate-hero-h1 gradient-text font-display max-w-4xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl">
           {SITE_TAGLINE}
         </h1>
         <p className="animate-hero-body max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
-          BASH Insights helps government organizations navigate challenges, modernize operations, and achieve mission success through collaborative solutions and trusted partnerships.
+          BASH Insights helps organizations navigate complex challenges, modernize operations, and achieve mission success through capable people and trusted partnerships.
         </p>
         <div className="animate-hero-cta flex flex-col gap-4 sm:flex-row sm:items-center">
           <a
             href="#contact"
+            data-magnetic
             className="btn-primary rounded-sm px-8 py-3 text-base font-semibold text-white"
           >
             Partner With Us
@@ -43,7 +43,7 @@ export default function Hero() {
             href="#solutions"
             className="rounded-sm border-2 border-[var(--accent)] px-8 py-3 text-base font-semibold text-[var(--accent)] transition-all hover:bg-[var(--accent)]/10"
           >
-            Explore Our Capabilities →
+            Explore Our Capabilities &rarr;
           </a>
         </div>
       </div>

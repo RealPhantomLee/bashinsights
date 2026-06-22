@@ -13,6 +13,7 @@
   --surface: #ffffff;
   --surface-raised: #f8f8fc;
   --surface-dark: #0f172a;
+  --hero-bg: linear-gradient(135deg, #0c1a2e 0%, #1a3a5c 40%, #1e2a4a 100%);
 }
 
 [data-theme="dark"] {
@@ -27,6 +28,7 @@
   --surface: #13131f;
   --surface-raised: #1a1a2e;
   --surface-dark: #0a0a14;
+  --hero-bg: #0a0a14;
 }
 
 @theme inline {
@@ -131,4 +133,78 @@ body::before {
 .btn-primary:hover {
   background-position: right center;
   box-shadow: 0 0 24px rgba(6, 182, 212, 0.35);
+}
+
+/* ── Gradient text ─────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #06B6D4 0%, #22D3EE 50%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Marquee ───────────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Word-split entrance ───────────────────────────────────── */
+.word {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1.15;
+}
+.word-inner {
+  display: inline-block;
+  transform: translateY(105%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.word-inner.in-view {
+  transform: none;
+}
+
+/* ── Back to top ───────────────────────────────────────────── */
+.back-to-top {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Scroll progress bar ───────────────────────────────────── */
+#scroll-progress {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.1s linear;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Night-to-day theme transition overlay ─────────────────── */
+#theme-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10001;
+  clip-path: circle(0% at calc(100% - 52px) 28px);
+}
+#theme-overlay.animating[data-direction="to-light"] {
+  background: radial-gradient(ellipse at 75% 0%, #bae6fd 0%, #e0f2fe 40%, #f0f9ff 100%);
+  animation: themeCircleExpand 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+#theme-overlay.animating[data-direction="to-dark"] {
+  background: radial-gradient(ellipse at 75% 0%, #22D3EE 0%, #0c1a2e 40%, #080810 100%);
+  animation: themeCircleExpand 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+@keyframes themeCircleExpand {
+  0%   { clip-path: circle(0% at calc(100% - 52px) 28px); opacity: 1; }
+  70%  { clip-path: circle(160% at calc(100% - 52px) 28px); opacity: 1; }
+  100% { clip-path: circle(160% at calc(100% - 52px) 28px); opacity: 0; }
 }

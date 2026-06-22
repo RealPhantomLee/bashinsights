@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section id="contact" className="bg-[var(--bg)]" aria-labelledby="contact-heading">
       <div className="accent-line-thick mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-24 sm:py-28">
-        <p className="reveal section-label">04 / Connect</p>
+        <p className="reveal section-label scramble">04 / Connect</p>
         <h2
           id="contact-heading"
           className="reveal font-display text-3xl font-bold tracking-tight text-[var(--fg)] sm:text-4xl"
@@ -17,6 +17,7 @@ export default function Contact() {
         </p>
         <a
           href={`mailto:${CONTACT_EMAIL}`}
+          data-magnetic=""
           className="reveal btn-primary rounded-sm px-8 py-3 text-base font-semibold text-white"
           data-delay="3"
         >

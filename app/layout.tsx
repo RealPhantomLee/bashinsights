@@ -3,6 +3,12 @@ import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
+import ThemeTransition from "@/components/ThemeTransition";
+import AnnouncementBar from "@/components/AnnouncementBar";
+import CustomCursor from "@/components/CustomCursor";
+import BackToTop from "@/components/BackToTop";
+import MagneticInit from "@/components/MagneticInit";
+import TiltInit from "@/components/TiltInit";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,30 +25,30 @@ const sora = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} | Government Solutions Partner`,
+    default: `${SITE_NAME} | Mission-Driven Consulting`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    "government contracting",
-    "government solutions",
+    "management consulting",
+    "mission-driven consulting",
     "public sector partner",
-    "GovCon",
     "BASH Insights",
-    "data analytics",
-    "strategic hub",
+    "strategic consulting",
+    "program management",
+    "operations support",
   ],
   authors: [{ name: SITE_NAME }],
   openGraph: {
     type: "website",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} | Government Solutions Partner`,
+    title: `${SITE_NAME} | Mission-Driven Consulting`,
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: "summary",
-    title: `${SITE_NAME} | Government Solutions Partner`,
+    title: `${SITE_NAME} | Mission-Driven Consulting`,
     description: SITE_DESCRIPTION,
   },
   icons: {
@@ -85,7 +91,13 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <ThemeTransition />
         <ScrollRevealInit />
+        <CustomCursor />
+        <BackToTop />
+        <MagneticInit />
+        <TiltInit />
+        <AnnouncementBar />
         {children}
       </body>
     </html>
