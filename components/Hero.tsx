@@ -28,7 +28,7 @@ export default function Hero() {
         <h1 className="animate-hero-h1 gradient-text font-display max-w-4xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl">
           {SITE_TAGLINE}
         </h1>
-        <p className="animate-hero-body max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
+        <p className="animate-hero-body max-w-2xl text-lg leading-relaxed sm:text-xl" style={{ color: "var(--hero-body-text)" }}>
           BASH Insights helps organizations navigate complex challenges, modernize operations, and achieve mission success through capable people and trusted partnerships.
         </p>
         <div className="animate-hero-cta flex flex-col gap-4 sm:flex-row sm:items-center">

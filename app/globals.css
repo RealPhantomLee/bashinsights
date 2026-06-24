@@ -13,7 +13,8 @@
   --surface: #ffffff;
   --surface-raised: #f8f8fc;
   --surface-dark: #0f172a;
-  --hero-bg: linear-gradient(135deg, #0c1a2e 0%, #1a3a5c 40%, #1e2a4a 100%);
+  --hero-bg: linear-gradient(160deg, #e0f2fe 0%, #f0f9ff 60%, #f8fafc 100%);
+  --hero-body-text: rgba(15, 23, 42, 0.75);
 }
 
 [data-theme="dark"] {
@@ -29,6 +30,7 @@
   --surface-raised: #1a1a2e;
   --surface-dark: #0a0a14;
   --hero-bg: #0a0a14;
+  --hero-body-text: rgba(255, 255, 255, 0.75);
 }
 
 @theme inline {
